@@ -1,11 +1,14 @@
 # Mark Development Scratchpad
 
 ```
-=g -build-file %/sur/graph-store/hoon
-=gu (update:g [%0 now [%add-graph [~timluc %timtime] *graph:g `%graph-validator-publish %.n]])
-:graph-store &graph-update gu
+::  see the output of the generator
++graph-store/add-graph [~timluc-miptev %collapse] `%graph-validator-publish %.y
+
+:graph-store|add-graph [~timluc-miptev %library] `%graph-validator-library %.y
+:graph-store +dbug
 :graph-store +dbug [%state 'validators']
+
 ```
 
 ## TODO
-- write a generator that does Clay scry and graph-validator
+- test the mark for `library` using `add-graph` generator
