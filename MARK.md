@@ -3,7 +3,7 @@
 ## create/add a graph and children
 ```
 :graph-store|add-graph [our %my-books] `%graph-validator-library %.y
-:graph-store|add-book [our %my-books] 'Great Expectations'
+:graph-store|add-book [our %my-books]
 :graph-store +dbug [%state 'graphs']
 :graph-store +dbug [%state 'validators']
 ```

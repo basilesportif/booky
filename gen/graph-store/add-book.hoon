@@ -1,13 +1,13 @@
 /-  *graph-store
 :-  %say
 |=  $:  [now=@da eny=@uvJ =beak]
-        [[[our=ship name=term] title=cord ~] ~]
+        [[[our=ship name=term] ~] ~]
     ==
 =|  book1=post
 =:  author.book1     our
     index.book1    [3]~
     time-sent.book1  now
-    contents.book1  ~[[%text title]]
+    contents.book1  ~[[%text 'Great Expectations']]
 ==
 =|  book2=post
 =:  author.book2     our
@@ -28,6 +28,6 @@
 %-  ~(gas by *(map index node))
 :~
     [index.book1 [book1 [%empty ~]]]
-    [index.chapters [chapters [%empty ~]]]
     [index.book2 [book2 [%empty ~]]]
+    [index.chapters [chapters [%empty ~]]]
 ==
