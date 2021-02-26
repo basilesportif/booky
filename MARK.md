@@ -1,14 +1,15 @@
 # Mark Development Scratchpad
 
+## create/add a graph and children
 ```
-::  see the output of the generator
-+graph-store/add-graph [~timluc-miptev %collapse] `%graph-validator-publish %.y
-
-:graph-store|add-graph [~timluc-miptev %library] `%graph-validator-library %.y
-:graph-store +dbug
+:graph-store|add-graph [our %my-books] `%graph-validator-library %.y
+:graph-store|add-book [our %my-books] 'Great Expectations'
+:graph-store +dbug [%state 'graphs']
 :graph-store +dbug [%state 'validators']
-
 ```
 
-## TODO
-- test the mark for `library` using `add-graph` generator
+## View Generator Output
+```
++graph-store/add-graph [our %my-books] `%graph-validator-publish %.y
++graph-store/add-book [our %my-books] 'Great Expectations'
+```
