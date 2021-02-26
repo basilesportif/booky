@@ -11,7 +11,7 @@
 ==
 =|  book2=post
 =:  author.book2     our
-    index.book2    [3]~
+    index.book2    [4]~
     time-sent.book2  now
     contents.book2  ~[[%text 'The Triumph of Timtime']]
 ==
