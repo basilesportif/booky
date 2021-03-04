@@ -35,6 +35,8 @@
       ip
     ::  chapter
     ::  index is chapter number
+    ::    - doesn't have to correspond to number in the book
+    ::    - just a sequential index
     ::  first content is chapter title (can be blank)
     ::  second content is chapter content
     ::
@@ -50,6 +52,22 @@
     ::  container for annotations
         [@ %annotations ~]
       ?>  ?=(~ contents.p.ip)
+      ip
+    ::  annotation
+    ::  first content is name
+    ::  second content is a %chapter reference
+    ::  third content is character start index
+    ::  fourth content is character end index
+    ::  fifth content is the annotation text
+        [@ %annotations @ud ~]
+      ?>  ?=([* * * * * ~] contents.p.ip)
+      ?>  ?=(%text -.i.contents.p.ip)
+      ?>  ?=([%reference [* @ %chapters @ud ~]] i.t.contents.p.ip)
+      ?>  ?=(%number -.i.t.t.contents.p.ip)
+      ?>  ?=(%number -.i.t.t.t.contents.p.ip)
+      ::?>
+      ::?>
+      ::?>
       ip
     ::  container for table of contents
         [@ %toc ~]
