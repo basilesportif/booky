@@ -13,8 +13,8 @@
     time-sent.blank  now
     contents.blank   ~
 ==
-=/  chapter-contents
-  ~[[%text ''] [%text article-text]]
+=/  section-contents
+  ~[[%text article-text]]
 :-  %graph-update
 ^-  update
 :+  %0  now
@@ -22,6 +22,8 @@
 %-  ~(gas by *(map index node))
 :~
     [~[top] [blank(index ~[top], contents ~[[%text title]]) [%empty ~]]]
-    [~[top %chapters] [blank(index ~[top %chapters]) [%empty ~]]]
-    [~[top %chapters 1] [blank(index ~[top %chapters 1], contents chapter-contents) [%empty ~]]]
+    [~[top %sections] [blank(index ~[top %sections]) [%empty ~]]]
+    [~[top %sections 1] [blank(index ~[top %sections 1], contents section-contents) [%empty ~]]]
+::    [~[top %chapters] [blank(index ~[top %chapters]) [%empty ~]]]
+::    [~[top %chapters 1] [blank(index ~[top %chapters 1], contents chapter-contents) [%empty ~]]]
 ==

@@ -43,6 +43,16 @@
       ?>  ?=([* ~] contents.p.ip)
       ?>  ?=(%text -.i.contents.p.ip)
       ip
+    ::
+    ::
+        [@ %sections ~]
+      ?>  ?=(~ contents.p.ip)
+      ip
+    ::
+        [@ %sections @ud ~]
+      ?>  ?=([* ~] contents.p.ip)
+      ?>  ?=(%text -.i.contents.p.ip)
+      ip
     ::  container for chapters
     ::  null content
         [@ %chapters ~]
