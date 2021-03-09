@@ -1,4 +1,19 @@
 /-  *post
+=>
+|%
+::  first content is name/title
+::  second content is a %section reference
+::
+++  is-text-pointer
+  |=  [cs=(list content) num-elts=@ud]
+  ^-  ?
+  =/  our-lent=@ud  2
+  ?&  =((lent cs) (add num-elts our-lent))
+      ?=([* * *] cs)
+      ?=(%text -.i.cs)
+      ?=([%reference [* @ %sections @ud ~]] i.t.cs)
+  ==
+--
 |_  i=indexed-post
 ++  grow
   |%
@@ -34,44 +49,31 @@
       ?>  ?=(~ contents.p.ip)
       ip
     ::  chapter
-    ::  index is chapter number
-    ::    - doesn't have to correspond to number in the book
-    ::    - just a sequential index
-    ::  first content is chapter title (can be blank)
-    ::  second content is chapter content
+    ::  index is a sequential id
     ::
         [@ %chapters @ud ~]
-      ?>  ?=([* * ~] contents.p.ip)
-      ?>  ?=(%text -.i.contents.p.ip)
-      ?>  ?=(%text -.i.t.contents.p.ip)
+      ?>  ?=(is-text-pointer 0)
       ip
     ::  container for bookmarks
+    ::  bookmarks and chapters are the same structurally,
+    ::  but have different semantic purposii
         [@ %bookmarks ~]
       ?>  ?=(~ contents.p.ip)
+      ip
+    ::  bookmark
+        [@ %bookmarks @ud ~]
+      ?>  (is-text-pointer contents.p.ip 0)
       ip
     ::  container for annotations
         [@ %annotations ~]
       ?>  ?=(~ contents.p.ip)
       ip
     ::  annotation
-    ::  first content is name
-    ::  second content is a %chapter reference
-    ::  third content is character start index
-    ::  fourth content is character end index
-    ::  fifth content is the annotation text
+    ::  last content is the annotation text
         [@ %annotations @ud ~]
-      ?>  ?=([* * * * * ~] contents.p.ip)
-      ?>  ?=(%text -.i.contents.p.ip)
-      ?>  ?=([%reference [* @ %chapters @ud ~]] i.t.contents.p.ip)
-      ?>  ?=(%number -.i.t.t.contents.p.ip)
-      ?>  ?=(%number -.i.t.t.t.contents.p.ip)
-      ::?>
-      ::?>
-      ::?>
-      ip
-    ::  container for table of contents
-        [@ %toc ~]
-      ?>  ?=(~ contents.p.ip)
+      ?>  (is-text-pointer contents.p.ip 1)
+      ?>  ?=([* * * ~] contents.p.ip)
+      ?>  ?=(%text -.i.t.t.contents.p.ip)
       ip
     ==
   --
